@@ -35,9 +35,9 @@ public class MyUserDetailService implements UserDetailsService, UserDetailsPassw
 	@Override
 	public UserDetails updatePassword(UserDetails user, String newPassword) {
 		UserDetail user1 = rep.findById(user.getUsername()).get();
-		System.out.println(user.getPassword());
-		user1.setPassword(encoder.encode(newPassword));
-		System.out.println(encoder.encode(newPassword));
+		System.out.println("op:"+user.getPassword());
+		System.out.println("np: "+newPassword);
+		user1.setPassword(newPassword);
 		 rep.save(user1);
 		 return this.loadUserByUsername(user.getUsername());
 		
