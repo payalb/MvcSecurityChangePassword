@@ -21,7 +21,7 @@ public class UserDetail {
 	private String username;
 	private String password;
 	@ElementCollection(fetch=FetchType.EAGER)
-	private List<String> roles= new ArrayList<>();
+	private List<String> authorities= new ArrayList<>();
 	private boolean enabled=true;
 	
 }

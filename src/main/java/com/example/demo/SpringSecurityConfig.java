@@ -21,7 +21,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 
 		http
 			.authorizeRequests()
-				.anyRequest().authenticated()
+				.anyRequest().hasAuthority("ROLE_ADMIN")
 				.and().formLogin().and().logout()
 				.and()
 			.httpBasic();

@@ -28,8 +28,9 @@ public class MyUserDetailService implements UserDetailsService, UserDetailsPassw
 		if (user == null) {
 			throw new RuntimeException("Invalid credentials! Username not correct.");
 		}
+		user.getAuthorities().stream().map(x-> new SimpleGrantedAuthority(x)).forEach(System.out::println);
 		return new User(user.getUsername(), user.getPassword(),
-				user.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+				user.getAuthorities().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
 	}
 
 	@Override
